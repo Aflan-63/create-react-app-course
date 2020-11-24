@@ -1,11 +1,10 @@
-import logo from './logo.svg';
-
 import { Navbar, NavbarBrand, Button } from 'reactstrap';
 import './App.css';
 
 import React, { Component } from 'react'
 import MenuComponent from './components/MenuComponent';
 import { DISHES } from './shared/dishes';
+import DishDetailsComponent from './components/DishdetailComponent ';
 
 export default class App extends Component {
   constructor(props) {
