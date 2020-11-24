@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, CardImgOverlay
+    Card, CardImg, CardBody,
+    CardTitle, CardImgOverlay
 } from 'reactstrap';
-
-import DishdetailsComponent from './DishdetailComponent ';
 
 
 // LIFECYCLE METHODS - MOUNTED, UPDATED, UNMOUNTED
@@ -12,23 +10,18 @@ import DishdetailsComponent from './DishdetailComponent ';
 
 export default class MenuComponent extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            selectedDish: null
-        };
-    }
-    onDishSelect(dish) {
-        this.setState({ selectedDish: dish });
-        // console.log(this.state.selectedDish)
-    }
 
+        }
+    }
 
     render() {
 
         const menu = this.props.dishes.map((dish) => {
             return (
                 <div key={dish.id} className="col-12 col-md-5 M-1">
-                    <Card onClick={() => this.onDishSelect(dish)}>
+                    <Card onClick={() => this.props.onClick(dish.id)}>
                         <CardImg top width="100%" src={dish.image} alt={dish.name} />
                         <CardBody>
                             <CardImgOverlay>
@@ -37,6 +30,7 @@ export default class MenuComponent extends Component {
                         </CardBody>
                     </Card>
                 </div>
+
             )
         })
 
@@ -45,10 +39,6 @@ export default class MenuComponent extends Component {
                 <div className="row">
                     {menu}
                 </div>
-                <div className="">
-                    <DishdetailsComponent dish={this.state.selectedDish}></DishdetailsComponent>
-                </div>
-
             </div>
 
         )
