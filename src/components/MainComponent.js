@@ -7,6 +7,7 @@ import HeaderComponent from './HeaderComponent';
 import FooterComponent from './FooterComponent';
 import HomeComponent from './HomeComponent';
 import DishDetail from './DishdetailComponent';
+import About from './AboutComponent';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Contact from './ContactComponent';
@@ -50,6 +51,12 @@ export default class MainComponent extends Component {
             )
         }
 
+        const AboutPage = () => {
+            return (
+                <About leaders={this.state.leaders}></About>
+            )
+        }
+
         const DishWithId = ({ match }) => {
             return (
                 <DishDetail dish={this.state.dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[0]}
@@ -70,9 +77,8 @@ export default class MainComponent extends Component {
                     <Route path="/menu/:dishId" component={DishWithId}></Route>
                     {/* <Route exact path='/menu/:id' component={DishDetail} /> */}
                     <Route exact path='/contactus' component={Contact} />
+                    <Route exact path='/aboutus' component={AboutPage} />
                     <Redirect to="/home"></Redirect>
-
-
                 </Switch>
                 <FooterComponent></FooterComponent>
             </div>
