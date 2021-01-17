@@ -65,8 +65,7 @@ class MainComponent extends Component {
                 <Switch>
                     <Route path="/home" component={HomePage}></Route>
                     <Route exact path='/menu' component={MenuPage} />
-                    <Route path="/menu/:dishId" component={DishWithId}></Route>
-                    {/* <Route exact path='/menu/:id' component={DishDetail} /> */}
+                    <Route path="/menu/:dishId" component={DishWithId}></Route>               
                     <Route exact path='/contactus' component={Contact} />
                     <Route exact path='/aboutus' component={AboutPage} />
                     <Redirect to="/home"></Redirect>
